@@ -3,12 +3,14 @@
 import argparse
 import codecs
 import json
+import logging
 import os
 import re
 import time
 
 import requests
 
+# https://www.ikyu.com/00000070/review/p27/
 
 tmpl_url = "http://www.ikyu.com/%08d/review/"
 out_html = "%08d.html"
@@ -20,7 +22,7 @@ def parse_last_url(url):
 
 def download_suc_page(base_url, num, out_dir):
     bid = extract_ids(base_url)
-    url = base_url + "?pn=%d" % num
+    url = "{}p{}/".format(base_url, num)
     filepath = os.path.join(out_dir, out_suc_html % (bid, num))
     r = requests.get(url)
     with codecs.open(filepath, 'w', 'utf-8') as fout:
@@ -41,16 +43,16 @@ def extract_ids(base_url):
 
 
 def download_pages(last_url, dirname):
-    elems = last_url.split('?')
+    elems = last_url.rsplit('/p', 1)
     if len(elems) == 1:
         # no param        
         base_url = elems[0]
         download_top_page(base_url, dirname)
         time.sleep(7)
     else:
-        base_url = elems[0]
+        base_url = elems[0] + "/"
         download_top_page(base_url, dirname)
-        max_index = elems[1].split('=')[1]
+        max_index = elems[1][:-1]
         for i in range(2, int(max_index)+1):
             download_suc_page(base_url, i, dirname)
             time.sleep(7)
