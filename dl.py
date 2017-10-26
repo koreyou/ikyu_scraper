@@ -12,7 +12,7 @@ import requests
 
 # https://www.ikyu.com/00000070/review/p27/
 
-tmpl_url = "http://www.ikyu.com/%08d/review/"
+tmpl_url = "https://www.ikyu.com/%08d/review/"
 out_html = "%08d.html"
 out_suc_html = "%08d-%d.html"
 
