@@ -12,7 +12,7 @@ import requests
 
 # https://www.ikyu.com/00000070/review/p27/
 
-tmpl_url = "https://www.ikyu.com/%08d/review/"
+# tmpl_url = "https://www.ikyu.com/%08d/review/"
 out_html = "%08d.html"
 out_suc_html = "%08d-%d.html"
 
@@ -39,7 +39,12 @@ def download_top_page(base_url, out_dir):
 
 def extract_ids(base_url):
     elems = base_url.split(".com/")
-    return int(elems[1].split("/")[0])
+    try:
+        _id = int(elems[1].split("/")[0])
+        return _id
+    except ValueError:
+        _id = int(elems[1].split("/")[1])
+        return _id
 
 
 def download_pages(last_url, dirname):
