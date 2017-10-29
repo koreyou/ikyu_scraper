@@ -18,6 +18,13 @@ URLのリストを作る
 - ikyu.comのホテルのクチコミのページネーションの最後のページを表示
 - そのURLをテキストファイルurl_list.txtに1行1件で記録
 
+
+各地域のホテル一覧ページからホテルのURLリストを抽出する
+
+```
+python download_hotel_urls.py etc/ikyu-area.txt | tee url_list.txt
+```
+
 HTMLファイルのダウンロードする
 
 ```

@@ -18,29 +18,18 @@ logger = logging.getLogger(__name__)
 from urlparse import urlparse
 
 
-def url_to_filename(url):
-    o = urlparse(url)
-    return "-".join(o.path.strip("/").split("/")) + ".html"
-
-
-def save_html(response):
-    f = url_to_filename(response.url)
-    with codecs.open("urllog/" + f, 'w', 'utf-8') as fout:
-        fout.write(response.text)
-
-
 def run():
     args = parse_args()
     logging.basicConfig(level=logging.DEBUG)
 
     r = requests.get(args.url)
-    save_html(r)
+    ikyu.save_html(r)
     review_links = ikyu.extract_links(r.text)
     logger.info("{} urls found".format(len(review_links)))
     for link in review_links:
         time.sleep(7)
         r = requests.get(link)
-        save_html(r)
+        ikyu.save_html(r)
         last_page = ikyu.get_last_page(r.text)
         if last_page is not None:
             print(last_page)

@@ -1,0 +1,59 @@
+# 北海道
+# https://www.ikyu.com/hokkaido/110000/
+https://www.ikyu.com/hokkaido/110000/p6/
+#
+# 東北
+# https://www.ikyu.com/tohoku/120000/
+https://www.ikyu.com/tohoku/120000/p7/
+#
+# 北関東
+# https://www.ikyu.com/kanto/130000/
+https://www.ikyu.com/kanto/130000/p5/
+#
+# 東京
+# https://www.ikyu.com/tokyo/140000/
+https://www.ikyu.com/tokyo/140000/p8/
+#
+# 南関東
+# https://www.ikyu.com/kanto2/150000/
+https://www.ikyu.com/kanto2/150000/p5/
+#
+# 箱根・熱海・伊豆
+# https://www.ikyu.com/hakone/160000/
+https://www.ikyu.com/hakone/160000/p7/
+#
+# 甲信越
+# https://www.ikyu.com/koshinetsu/210000/
+https://www.ikyu.com/koshinetsu/210000/p8/
+#
+# 北陸
+# https://www.ikyu.com/hokuriku/220000/
+https://www.ikyu.com/hokuriku/220000/p3/
+#
+# 東海
+# https://www.ikyu.com/tokai/230000/
+https://www.ikyu.com/tokai/230000/p7/
+#
+# 大阪
+# https://www.ikyu.com/osaka/310000/
+https://www.ikyu.com/osaka/310000/p3/
+#
+# 関西 大阪以外
+# https://www.ikyu.com/kansai/320000/
+https://www.ikyu.com/kansai/320000/p12/
+#
+# 中国
+# https://www.ikyu.com/chugoku/330000/
+https://www.ikyu.com/chugoku/330000/p4/
+#
+# 四国
+# https://www.ikyu.com/shikoku/340000/
+https://www.ikyu.com/shikoku/340000/p2/
+#
+# 九州
+# https://www.ikyu.com/kyushu/350000/
+https://www.ikyu.com/kyushu/350000/p9/
+#
+# 沖縄
+# https://www.ikyu.com/okinawa/360000/
+https://www.ikyu.com/okinawa/360000/p5/
