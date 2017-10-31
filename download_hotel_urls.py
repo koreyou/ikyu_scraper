@@ -1,22 +1,17 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
+
 import argparse
-import codecs
 import json
 import logging
-import re
 import time
 
-import bs4
 import requests
 
 import ikyu
-import dl
 
 logger = logging.getLogger(__name__)
-
-from urlparse import urlparse, urlunparse
 
 
 def run():
@@ -41,6 +36,7 @@ def run():
     for _url in area_urls:
         r = requests.get(_url)
         ikyu.save_html(r)
+        # Extract links with stars = hotels with reviews
         review_links = ikyu.extract_links(r.text, 'iconfontStarWrapper')
         logger.info("{} urls found".format(len(review_links)))
         for link in review_links:

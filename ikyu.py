@@ -5,6 +5,7 @@ import codecs
 import json
 import logging
 import re
+import os
 
 import bs4
 from urlparse import urlparse, urlunparse, ParseResult
@@ -41,8 +42,11 @@ def url_to_filename(url):
 
 
 def save_html(response):
+    URLLOG_DIR = "urllog"
+    if not os.path.exists(URLLOG_DIR):
+        os.makedirs(URLLOG_DIR)
     f = url_to_filename(response.url)
-    with codecs.open("urllog/" + f, 'w', 'utf-8') as fout:
+    with codecs.open(os.path.join(URLLOG_DIR, f), 'w', 'utf-8') as fout:
         fout.write(response.text)
 
 
