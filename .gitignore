@@ -1,4 +1,23 @@
-*~
-*.pyc
-*.swp
+###### Editor debris ########
 
+*.org
+*~
+¥#*
+
+# spyder
+.spyderproject/
+
+# pycharm
+**/.idea/
+.python-version
+
+###### Python debris ########
+
+*.pyc
+
+
+###### Impl. specific debris ########
+
+*.swp
+urllog/
+url_list.txt
