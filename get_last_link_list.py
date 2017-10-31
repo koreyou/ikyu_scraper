@@ -15,8 +15,6 @@ import ikyu
 
 logger = logging.getLogger(__name__)
 
-from urlparse import urlparse
-
 
 def run():
     args = parse_args()
@@ -24,7 +22,7 @@ def run():
 
     r = requests.get(args.url)
     ikyu.save_html(r)
-    review_links = ikyu.extract_links(r.text)
+    review_links = ikyu.extract_links(r.text, "chi_name")
     logger.info("{} urls found".format(len(review_links)))
     for link in review_links:
         time.sleep(7)

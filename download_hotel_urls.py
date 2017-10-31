@@ -41,7 +41,7 @@ def run():
     for _url in area_urls:
         r = requests.get(_url)
         ikyu.save_html(r)
-        review_links = ikyu.extract_links(r.text)
+        review_links = ikyu.extract_links(r.text, 'iconfontStarWrapper')
         logger.info("{} urls found".format(len(review_links)))
         for link in review_links:
             time.sleep(7)

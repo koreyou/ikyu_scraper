@@ -57,14 +57,15 @@ def get_last_page(html_text):
     return target
 
 
-def extract_links(html_text):
+def extract_links(html_text, div_region):
     soup = bs4.BeautifulSoup(html_text, 'html.parser')
     alist = []
-    for review_div in soup.find_all('div', class_="iconfontStarWrapper"):
+    for review_div in soup.find_all('div', class_=div_region):
         for review_link in review_div.find_all('a'):
             logger.debug(review_link.get("href"))
             alist.append(review_link.get("href"))
-    return alist
+    # Remove duplicates
+    return list(set(alist))
 
 
 def run():
