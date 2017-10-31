@@ -2,10 +2,7 @@
 # -*- coding: utf-8 -*-
 import argparse
 import codecs
-import json
-import logging
 import os
-import re
 import time
 
 import requests
@@ -66,6 +63,8 @@ def download_pages(last_url, dirname):
 
 def run():
     args = parse_args()
+    if not os.path.exists(args.output_path):
+        os.makedirs(args.output_path)
 
     with codecs.open(args.input_path, 'r', 'utf-8') as fin:
         for url in (t.strip() for t in fin):

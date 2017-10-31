@@ -35,7 +35,7 @@ python download_hotel_urls.py etc/ikyu-area.txt | tee url_list.txt
 HTMLファイルのダウンロードする
 
 ```
-bash dl.py url_list.txt html_dir
+python dl.py url_list.txt html_dir
 ```
 
 HTMLファイルからテキストとレーティングをスクレイプする
