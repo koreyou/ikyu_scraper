@@ -2,6 +2,8 @@ ikyu_scraper
 ====
 
 Downloader and scraper of ikyu.com for NLP research.
+This is a fork from a project by Toshihiko Yanase.
+(https://bitbucket.org/toshihikoyanase/ikyu_scraper)
 
 言語処理研究のためのikyu.comのダウンローダ＆スクレイパー。
 
