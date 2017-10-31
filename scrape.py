@@ -7,6 +7,7 @@ import re
 
 import bs4
 
+
 class Doc(object):
     def __init__(self):
         self.title = ""
@@ -30,6 +31,18 @@ class Doc(object):
         }
 
 
+def strip_br_join(contents):
+    def cleanse(s):
+        if isinstance(r, bs4.NavigableString):
+            return s.strip()
+        elif isinstance(r, bs4.Tag):
+            return '\n' if r.name == 'br' else ''
+        else:
+            return ''
+
+    return ''.join([cleanse(r) for r in contents])
+
+
 def run():
     args = parse_args()
 
@@ -37,7 +50,6 @@ def run():
         text = fin.read()
     soup = bs4.BeautifulSoup(text, 'html.parser')
     docs = []
-
     score_re = re.compile(ur"bigiconStar*")
     for review in soup.find_all('div', class_='Wordofmouth_Parts'):
         doc = Doc()
@@ -69,9 +81,9 @@ def run():
                 doc.user = user.a.text
         # extract review text
         for review_text in review.find_all('div', class_='word'):
-            doc.user_text = review_text.contents[0].strip()
+            doc.user_text = strip_br_join(review_text.contents)
             for review_return in review_text.find_all('div', class_='word_return'):
-                doc.hotel_text = review_return.contents[1].strip()
+                doc.hotel_text = strip_br_join(review_return.contents)
         docs.append(doc.to_json())
     print json.dumps(docs, indent=4)
 
