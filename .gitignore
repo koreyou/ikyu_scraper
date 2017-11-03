@@ -20,4 +20,4 @@
 
 *.swp
 urllog/
-url_list.txt
+build/

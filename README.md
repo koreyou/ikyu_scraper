@@ -7,20 +7,35 @@ This is a fork from a project by Toshihiko Yanase.
 
 言語処理研究のためのikyu.comのダウンローダ＆スクレイパー。
 
-FIXME: ページネーションのURLが変わっているため、このままでは動きません。
+2017/10/31時点で動作確認済みです。
 
 ## Requirement
 
 * Python 2.7
 * pip
 
+## Install
+
+```
+pip install -r requirements.txt
+```
+
 ## Usage
+
+### 全アクション実行
+
+```
+make
+```
+
+### Step-by-step 解説
 
 地域の一覧ページ（`トップ > ホテル・旅館一覧`）から地域のURLリストを抽出する。
 
 ```
+mkdir -p build
 python get_last_link_list.py https://www.ikyu.com/ap/srch/UspW15001.aspx | \
-    tee etc/ikyu-area.txt
+    tee build/ikyu-area.txt
 ```
 
 
@@ -29,26 +44,19 @@ python get_last_link_list.py https://www.ikyu.com/ap/srch/UspW15001.aspx | \
 - そのURLをテキストファイルurl_list.txtに1行1件で記録
 
 ```
-python download_hotel_urls.py etc/ikyu-area.txt | tee url_list.txt
+python download_hotel_urls.py build/ikyu-area.txt | tee build/url_list.txt
 ```
 
 HTMLファイルのダウンロードする
 
 ```
-python dl.py url_list.txt html_dir
+python dl.py build/url_list.txt build/html_dir
 ```
 
 HTMLファイルからテキストとレーティングをスクレイプする
 
 ```
-bash scrape_all.sh html_dir json_dir
-```
-
-## Install
-
-
-```
-pip install -r requirements.txt
+bash scrape_all.sh build/html_dir build/json_dir
 ```
 
 
